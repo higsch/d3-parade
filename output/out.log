@@ -1,0 +1,48 @@
+=== Config
+{
+  blocksPath: 'data/blocks-colors.json',
+  radialWidth: 4000,
+  barWidth: 600,
+  height: 4000,
+  margin: 10,
+  radialOpacity: 0.1,
+  barOpacity: 0.4,
+  radialLineWidth: 5,
+  barLineWidth: 1,
+  background: null,
+  topUsers: 10,
+  outputPath: 'output',
+  outputFormat: 'png'
+}
+=== Reading data...
+Done.
+=== Init canvas...
+Done.
+=== Draw...
+Done.
+
+=== 
+Image exported to /Users/matthias.stahl/higsch/challenges/d3-parade/output/radial.png 
+===
+
+=== Init canvas...
+Done.
+=== Draw...
+Done.
+[
+  { user_id: 'FergusDevelopmentLLC', n: 2493 },
+  { user_id: 'ericvaz', n: 2405 },
+  { user_id: 'nbremer', n: 2382 },
+  { user_id: 'timelyportfolio', n: 1422 },
+  { user_id: 'Thanaporn-sk', n: 1269 },
+  { user_id: 'lorenzopub', n: 1215 },
+  { user_id: '63anp3ca', n: 1016 },
+  { user_id: 'jblrse', n: 892 },
+  { user_id: 'mayblue9', n: 889 },
+  { user_id: 'syntagmatic', n: 846 }
+]
+
+=== 
+Image exported to /Users/matthias.stahl/higsch/challenges/d3-parade/output/bar.png 
+===
+

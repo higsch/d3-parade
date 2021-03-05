@@ -5,14 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
+    "start": "node index.js > ./output/out.log",
     "dev": "nodemon index.js"
   },
   "author": "Matthias Stahl",
   "license": "MIT",
   "dependencies": {
     "canvas": "^2.7.0",
-    "d3": "^6.5.0"
+    "d3": "^6.5.0",
+    "d3-hsv": "^0.1.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"

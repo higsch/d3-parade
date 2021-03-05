@@ -1,21 +1,49 @@
-const { scaleLinear, scaleSqrt, extent, max } = require('d3');
+const { scaleLinear, scaleOrdinal, extent, groups, descending } = require('d3');
 
-const defineScales = (data, width, height, margin) => {
+const defineRadialScales = (data, width, height, margin) => {
   const dateScale = scaleLinear()
     .domain(extent(data, d => d.created_at))
     .range([0, Math.min(width, height) / 2 - margin]);
-  
-  const numberScale = scaleSqrt()
-    .domain([0, Math.min(1, max(data, d => d.number))])
-    .range([0, Math.min(width, height) / 700])
-    .clamp(true);
+
+  const segmentScale = scaleLinear()
+    .domain([0, 360])
+    .range([0, 2 * Math.PI]);
 
   return {
     dateScale,
-    numberScale
+    segmentScale
   }
 };
 
+const defineBarScales = (userData, width, height, margin) => {
+  const totalNumColors = userData.reduce((acc, cur) => acc + cur.n, 0);
+  const userIndices = userData.map(d => d.index);
+  let lastPos = margin;
+  const userScale = scaleOrdinal()
+    .domain(userIndices)
+    .range(userIndices.map(userIndex => {
+      const n = userData.find(d => d.index === userIndex).n;
+      const start = lastPos;
+      const end = start + (height - 2 * margin) * n / totalNumColors;
+      lastPos = end;
+      return {
+        start,
+        end,
+        step: (end - start) / (n + 1)
+      }
+    }));
+
+  const widthScale = scaleLinear()
+    .domain([0, 1])
+    .range([margin, width - margin]);
+
+  return {
+    userScale,
+    widthScale
+  };
+};
+
 module.exports = {
-  defineScales
+  defineRadialScales,
+  defineBarScales
 };

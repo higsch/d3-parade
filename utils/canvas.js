@@ -39,7 +39,7 @@ const drawRadialLines = (ctx, data, segmentScale, dateScale, opacity, lineWidth)
   console.log('Done.');
 };
 
-const drawBarLines = (ctx, userData, widthScale, userScale, opacity, lineWidth) => {
+const drawBarLines = (ctx, userData, widthScale, userScale, opacity, lineWidth, maxOffset) => {
   console.log('=== Draw...');
 
   ctx.globalAlpha = opacity;
@@ -50,8 +50,8 @@ const drawBarLines = (ctx, userData, widthScale, userScale, opacity, lineWidth) 
     let pos = start;
     for (let i = 0; i < user.n; i++) {
       ctx.beginPath();
-      ctx.moveTo(widthScale(0), pos);
-      ctx.lineTo(widthScale(1), pos);
+      ctx.moveTo(widthScale(0) + Math.random() * maxOffset, pos);
+      ctx.lineTo(widthScale(1) - Math.random() * maxOffset, pos);
       ctx.strokeStyle = user.uniqueColors[i].hex;
       ctx.stroke();
 

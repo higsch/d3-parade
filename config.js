@@ -8,6 +8,7 @@ module.exports = {
   barOpacity: 0.4,
   radialLineWidth: 5,
   barLineWidth: 1,
+  maxBarLineOffset: 200,
   background: null,
   topUsers: 10,
   outputPath: 'output',

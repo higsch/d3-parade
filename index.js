@@ -24,7 +24,7 @@ const buildBar = async (data) => {
   // init canvas
   const [ canvas, ctx ] = initCanvas(config.barWidth, config.height, config.background, false);
   // draw lines
-  drawBarLines(ctx, userData, widthScale, userScale, config.barOpacity, config.barLineWidth);
+  drawBarLines(ctx, userData, widthScale, userScale, config.barOpacity, config.barLineWidth, config.maxBarLineOffset);
   // report top users
   console.log(userData.map(d => ({user_id: d.user_id, n: d.n})));
   // export image

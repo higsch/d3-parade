@@ -1,6 +1,6 @@
 const path = require('path');
 const { createWriteStream } = require('fs');
-const { timeParse, color } = require('d3');
+const { timeParse } = require('d3');
 const { hsv } = require('d3-hsv');
 
 const parseDate = timeParse('%Y-%m-%dT%H:%M:%SZ');
@@ -20,7 +20,7 @@ const loadBlocks = async (blocksPath) => {
     updated_at: parseDate(d.updated_at),
     colors: Object.keys(d.colors).map(c => ({
       hex: c,
-      hsv: hsv(color(c)),
+      hsv: hsv(c),
       number: d.colors[c]
     }))
   }));
@@ -37,7 +37,6 @@ const loadBlocks = async (blocksPath) => {
     })];
   }, [])
   .flat();
-  //.filter(d => !/#[def]f/ig.test(d.color) && !/#0/ig.test(d.color));
 
   console.log('Done.');
   return longColors;

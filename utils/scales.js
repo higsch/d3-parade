@@ -9,6 +9,8 @@ const defineRadialScales = (data, width, height, margin) => {
     .domain([0, 360])
     .range([0, 2 * Math.PI]);
 
+  console.log('Date range: ', dateScale.domain().map(d => new Date(d)));
+
   return {
     dateScale,
     segmentScale

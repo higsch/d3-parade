@@ -39,6 +39,9 @@ const buildBar = async (data) => {
   // load data
   const data = await loadBlocks(config.blocksPath);
 
+  // how much colors are there
+  console.log('Total unique hues: ', [...new Set(data.filter(d => !isNaN(d.hsv.h)).map(d => d.hex))].length);
+
   // build "zero" circle
   await buildCircle(data);
 
